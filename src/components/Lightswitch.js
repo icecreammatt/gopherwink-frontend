@@ -2,7 +2,6 @@
 
 let React = require('react/addons');
 let mui = require('material-ui');
-let ThemeManager = new mui.Styles.ThemeManager();
 let Slider = mui.Slider;
 let Toggle = mui.Toggle;
 let Card = mui.Card;
@@ -18,16 +17,6 @@ var Lightswitch = React.createClass({
 
   getInitialState() {
     return {value: '0.5'};
-  },
-
-  childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
-
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
   },
 
   toggled(event, toggled) {
