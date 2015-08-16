@@ -30,7 +30,8 @@ var LightClientApp = React.createClass({
     return (
       <div className="main">
         <ReactTransitionGroup transitionName="fade">
-          <Lightswitch id="Living Room" active="false"/>
+          <Lightswitch lightlabel="mobile" lightid="1" active="false"/>
+          <Lightswitch lightlabel="entry" lightid="2" active="false"/>
           <Ledcontroller />
         </ReactTransitionGroup>
       </div>

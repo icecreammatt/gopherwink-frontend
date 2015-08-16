@@ -11,44 +11,58 @@ let ip = '192.168.1.11';
 let port = '5000';
 let baseUrl = `http://${ ip }:${ port }/`;
 
+let injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
+
 require('styles/Lightswitch.less');
 
 var Lightswitch = React.createClass({
 
   getInitialState() {
-    return {value: '0.5'};
+    return {
+      light: {
+        id: parseInt(this.props.lightid),
+        active: false,
+        value: 0
+      }
+    };
+  },
+  postData(route) {
+    let url = `${ baseUrl }${ route }`;
+    let postData = JSON.stringify(this.state.light);
+    console.log(postData);
+    fetch(url, {
+      method: 'post',
+      body: postData,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log('Success: ' + response.body);
+    })
+    .catch(error => {
+      console.log('Error: ' + error);
+    });
   },
 
   toggled(event, toggled) {
     console.log(toggled);
-    let url = `${ baseUrl }light?status=${toggled ? 'ON' : 'OFF'}`;
-    fetch(url)
-      .then(response => {
-        console.log('Success' + response);
-      })
-      .catch(error => {
-        console.log('Error: ' + error);
-      });
+    this.state.light.active = toggled;
+    this.postData('light/state');
   },
 
   onChange(e, value) {
-    value = parseInt((value * 255) * 1); // Limit range between 0 & 255
-    console.log('Value:', value);
-    let url = `${ baseUrl }light?value=${ value }`;
-    fetch(url)
-      .then(response => {
-        console.log('Success: ' + response.body);
-      })
-      .catch(error => {
-        console.log('Error: ' + error);
-      });
+    this.state.light.value = parseInt((value * 255) * 1); // Limit range between 0 & 255
+    console.log(this.state.light.value);
+    this.postData('light/value');
   },
 
   render() {
     return (
         <Card className="Lightswitch">
             <div>
-                <Toggle value="toggleValue1" label={this.props.id} defaultToggled={this.props.active} onToggle={this.toggled} />
+                <Toggle value="toggleValue1" label={this.props.lightlabel} defaultToggled={this.props.active} onToggle={this.toggled} />
                 <Slider onChange={this.onChange} />
             </div>
         </Card>

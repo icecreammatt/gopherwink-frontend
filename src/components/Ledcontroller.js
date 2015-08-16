@@ -10,6 +10,9 @@ let ip = '192.168.1.11';
 let port = '5000';
 let baseUrl = `http://${ ip }:${ port }/`;
 
+let injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
+
 require('styles/Ledcontroller.less');
 
 var Ledcontroller = React.createClass({
