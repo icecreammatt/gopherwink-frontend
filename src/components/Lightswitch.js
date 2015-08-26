@@ -62,8 +62,8 @@ var Lightswitch = React.createClass({
     return (
         <Card className="Lightswitch">
             <div>
-                <Toggle value="toggleValue1" label={this.props.lightlabel} defaultToggled={this.props.active} onToggle={this.toggled} />
-                <Slider onChange={this.onChange} />
+                <Toggle label={this.props.lightlabel} defaultToggled={this.props.active} onToggle={this.toggled} />
+                <Slider value={this.props.value / 255} onChange={this.onChange} />
             </div>
         </Card>
       );

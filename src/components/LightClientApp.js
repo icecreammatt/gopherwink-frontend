@@ -50,7 +50,7 @@ var LightClientApp = React.createClass({
   render: function() {
     var switches = this.state.items.map(light => {
       return (
-        <Lightswitch lightlabel={light.Username} lightid={light.Id} active="false" />
+        <Lightswitch lightlabel={light.Username} lightid={light.Id} active={light.Active} value={light.Value} />
       );
     });
 
