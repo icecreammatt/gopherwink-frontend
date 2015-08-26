@@ -5,10 +5,7 @@ require('whatwg-fetch');
 let mui = require('material-ui');
 let Slider = mui.Slider;
 let Card = mui.Card;
-
-let ip = '192.168.1.11';
-let port = '5000';
-let baseUrl = `http://${ ip }:${ port }/`;
+let config = require('./config');
 
 let injectTapEventPlugin = require('react-tap-event-plugin');
 injectTapEventPlugin();
@@ -28,7 +25,7 @@ var Ledcontroller = React.createClass({
   },
 
     postData() {
-        let url = `${ baseUrl }led`;
+        let url = `${ config.baseUrl }led`;
         let postData = JSON.stringify(this.state.rgb);
         console.log(postData);
         fetch(url, {

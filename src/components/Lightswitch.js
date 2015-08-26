@@ -6,10 +6,7 @@ let Slider = mui.Slider;
 let Toggle = mui.Toggle;
 let Card = mui.Card;
 require('whatwg-fetch');
-
-let ip = '192.168.1.11';
-let port = '5000';
-let baseUrl = `http://${ ip }:${ port }/`;
+let config = require('./config');
 
 let injectTapEventPlugin = require('react-tap-event-plugin');
 injectTapEventPlugin();
@@ -28,7 +25,7 @@ var Lightswitch = React.createClass({
     };
   },
   postData(route) {
-    let url = `${ baseUrl }${ route }`;
+    let url = `${ config.baseUrl }${ route }`;
     let postData = JSON.stringify(this.state.light);
     console.log(postData);
     fetch(url, {

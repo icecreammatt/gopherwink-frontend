@@ -8,10 +8,7 @@ let mui = require('material-ui');
 let ThemeManager = new mui.Styles.ThemeManager();
 let Ledcontroller = require('./Ledcontroller');
 let injectTapEventPlugin = require('react-tap-event-plugin');
-
-let ip = '192.168.1.11';
-let port = '5000';
-let baseUrl = `http://${ ip }:${ port }/`;
+let config = require('./config');
 
 injectTapEventPlugin();
 
@@ -26,7 +23,7 @@ var LightClientApp = React.createClass({
   },
 
   componentDidMount() {
-    let url = `${ baseUrl }lights`;
+    let url = `${ config.baseUrl }lights`;
     fetch(url)
     .then(response => {
       return response.json();
