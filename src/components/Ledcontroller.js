@@ -24,24 +24,24 @@ var Ledcontroller = React.createClass({
     };
   },
 
-    postData() {
-        let url = `${ config.baseUrl }led`;
-        let postData = JSON.stringify(this.state.rgb);
-        console.log(postData);
-        fetch(url, {
-            method: 'post',
-            body: postData,
-            headers: {
-              'Content-Type': 'application/json'
-            }
+  postData() {
+      let url = `${ config.baseUrl }led`;
+      let postData = JSON.stringify(this.state.rgb);
+      console.log(postData);
+      fetch(url, {
+          method: 'post',
+          body: postData,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+      })
+        .then(response => {
+          console.log('Success: ' + response.body);
         })
-          .then(response => {
-            console.log('Success: ' + response.body);
-          })
-          .catch(error => {
-            console.log('Error: ' + error);
-          });
-    },
+        .catch(error => {
+          console.log('Error: ' + error);
+        });
+  },
 
   onChangeRed(e, value) {
     this.state.rgb.red = parseInt((value * 255) * 1);
@@ -61,8 +61,11 @@ var Ledcontroller = React.createClass({
         <Card className="Ledcontroller">
           <div>
             <span>LED Colors</span>
+            <span>Red</span>
             <Slider onChange={this.onChangeRed} />
+            <span>Green</span>
             <Slider onChange={this.onChangeGreen} />
+            <span>Blue</span>
             <Slider onChange={this.onChangeBlue} />
           </div>
         </Card>

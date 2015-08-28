@@ -24,6 +24,7 @@ var Lightswitch = React.createClass({
       }
     };
   },
+
   postData(route) {
     let url = `${ config.baseUrl }${ route }`;
     let postData = JSON.stringify(this.state.light);
