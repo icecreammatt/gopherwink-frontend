@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "repository": "",
+  "license": "GPLv3",
   "private": true,
   "src": "src",
   "test": "test",
