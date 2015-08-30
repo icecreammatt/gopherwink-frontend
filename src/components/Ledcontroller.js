@@ -29,7 +29,7 @@ var Ledcontroller = React.createClass({
       let postData = JSON.stringify(this.state.rgb);
       console.log(postData);
       fetch(url, {
-          method: 'post',
+          method: 'put',
           body: postData,
           headers: {
             'Content-Type': 'application/json'

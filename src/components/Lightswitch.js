@@ -30,7 +30,7 @@ var Lightswitch = React.createClass({
     let postData = JSON.stringify(this.state.light);
     console.log(postData);
     fetch(url, {
-      method: 'post',
+      method: 'put',
       body: postData,
       headers: {
         'Content-Type': 'application/json'
@@ -47,13 +47,13 @@ var Lightswitch = React.createClass({
   toggled(event, toggled) {
     console.log(toggled);
     this.state.light.active = toggled;
-    this.postData('light/state');
+    this.postData('lights/' + this.props.lightid + '/power');
   },
 
   onChange(e, value) {
     this.state.light.value = parseInt((value * 255) * 1); // Limit range between 0 & 255
     console.log(this.state.light.value);
-    this.postData('light/value');
+    this.postData('lights/' + this.props.lightid + '/brightness');
   },
 
   render() {
