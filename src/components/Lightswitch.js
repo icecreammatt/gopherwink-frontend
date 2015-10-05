@@ -5,6 +5,7 @@ let mui = require('material-ui');
 let Slider = mui.Slider;
 let Toggle = mui.Toggle;
 let Card = mui.Card;
+let TextField = mui.TextField;
 require('whatwg-fetch');
 let config = require('./config');
 
@@ -13,6 +14,22 @@ injectTapEventPlugin();
 
 require('styles/Lightswitch.less');
 
+var labelStyle = {
+  width: '150px',
+  display: 'inline-block'
+};
+
+var switchStyle = {
+  marginTop: '15px',
+  width: '50px',
+  display: 'inline-block',
+  float: 'right'
+};
+
+var labelSwitchToggle = {
+  minWidth: '200px'
+};
+
 var Lightswitch = React.createClass({
 
   getInitialState() {
@@ -20,7 +37,8 @@ var Lightswitch = React.createClass({
       light: {
         id: parseInt(this.props.lightid),
         active: false,
-        value: 0
+        value: 0,
+        username: this.props.lightlabel
       }
     };
   },
@@ -56,12 +74,21 @@ var Lightswitch = React.createClass({
     this.postData('lights/' + this.props.lightid + '/brightness');
   },
 
+  onLabelChange(e) {
+    this.state.light.username = e.target.value;
+    this.setState({light: this.state.light});
+    this.postData('lights/' + this.props.lightid + '/name');
+  },
+
   render() {
     return (
         <Card className="Lightswitch">
+            <div className="label-switch-toggle" style={labelSwitchToggle}>
+              <TextField style={labelStyle} className="label" onBlur={this.onLabelChange} defaultValue={this.state.light.username} />
+              <Toggle style={switchStyle} className="toggle" defaultToggled={this.props.active} onToggle={this.toggled} />
+            </div>
+              <Slider value={this.props.value / 255} onChange={this.onChange} />
             <div>
-                <Toggle label={this.props.lightlabel} defaultToggled={this.props.active} onToggle={this.toggled} />
-                <Slider value={this.props.value / 255} onChange={this.onChange} />
             </div>
         </Card>
       );

@@ -5,7 +5,7 @@ let config = {
 };
 
 // DebugIP
-// config.ip = '192.168.1.11';
+config.ip = '192.168.1.11';
 config.baseUrl = `http://${ config.ip }:${ config.port }/`;
 
 
