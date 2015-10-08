@@ -19,6 +19,9 @@ require('../styles/main.css');
 var LightClientApp = React.createClass({
 
   getInitialState() {
+    if(localStorage.state) {
+      return JSON.parse(localStorage.state);
+    }
     return {items: []};
   },
 
@@ -31,6 +34,7 @@ var LightClientApp = React.createClass({
     .then(json => {
       console.log(json);
       this.setState({items: json});
+      localStorage.state = JSON.stringify(this.state);
     });
   },
 
