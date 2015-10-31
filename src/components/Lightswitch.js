@@ -1,6 +1,6 @@
 'use strict';
 
-let React = require('react/addons');
+let React = require('react');
 let mui = require('material-ui');
 let Slider = mui.Slider;
 let Toggle = mui.Toggle;

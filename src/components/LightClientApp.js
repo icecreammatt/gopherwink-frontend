@@ -1,8 +1,8 @@
 'use strict';
 
 require('whatwg-fetch');
-var React = require('react/addons');
-var ReactTransitionGroup = React.addons.TransitionGroup;
+var React = require('react');
+var ReactTransitionGroup = require('react-addons-transition-group');
 var Lightswitch = require('./Lightswitch');
 let Ledcontroller = require('./Ledcontroller');
 let injectTapEventPlugin = require('react-tap-event-plugin');

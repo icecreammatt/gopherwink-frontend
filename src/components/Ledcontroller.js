@@ -1,6 +1,6 @@
 'use strict';
 
-let React = require('react/addons');
+let React = require('react');
 require('whatwg-fetch');
 let mui = require('material-ui');
 let Slider = mui.Slider;

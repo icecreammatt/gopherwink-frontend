@@ -1,7 +1,8 @@
 'use strict';
 
-var LightClientApp = require('./LightClientApp');
-var React = require('react');
+import LightClientApp from './LightClientApp';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
 
 var content = document.getElementById('content');
@@ -9,9 +10,9 @@ var content = document.getElementById('content');
 var Routes = (
   <Router>
     <Route component={LightClientApp} path="/" >
-      <Route path="lights" handler={LightClientApp} />
+      <Route path="lights" component={LightClientApp} />
     </Route>
   </Router>
 );
 
-React.render(Routes, content);
+ReactDOM.render(Routes, content);

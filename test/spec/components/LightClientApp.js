@@ -1,7 +1,7 @@
 'use strict';
 
 describe('LightClientApp', () => {
-  let React = require('react/addons');
+  let React = require('react');
   let LightClientApp, component;
 
   beforeEach(() => {

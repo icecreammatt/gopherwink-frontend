@@ -1,7 +1,7 @@
 'use strict';
 
 // Uncomment the following lines to use the react test utilities
-// import React from 'react/addons';
+// import React from 'react';
 // const TestUtils = React.addons.TestUtils;
 
 import createComponent from 'helpers/createComponent';
