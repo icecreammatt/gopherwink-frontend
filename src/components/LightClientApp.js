@@ -4,8 +4,6 @@ require('whatwg-fetch');
 var React = require('react/addons');
 var ReactTransitionGroup = React.addons.TransitionGroup;
 var Lightswitch = require('./Lightswitch');
-let mui = require('material-ui');
-let ThemeManager = new mui.Styles.ThemeManager();
 let Ledcontroller = require('./Ledcontroller');
 let injectTapEventPlugin = require('react-tap-event-plugin');
 let config = require('./config');
@@ -36,16 +34,6 @@ var LightClientApp = React.createClass({
       this.setState({items: json});
       localStorage.state = JSON.stringify(this.state);
     });
-  },
-
-  childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
-
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
   },
 
   render: function() {

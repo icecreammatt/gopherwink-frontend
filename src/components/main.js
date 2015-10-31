@@ -2,17 +2,16 @@
 
 var LightClientApp = require('./LightClientApp');
 var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+import { Router, Route } from 'react-router';
 
 var content = document.getElementById('content');
 
 var Routes = (
-  <Route handler={LightClientApp}>
-    <Route name="/" handler={LightClientApp}/>
-  </Route>
+  <Router>
+    <Route component={LightClientApp} path="/" >
+      <Route path="lights" handler={LightClientApp} />
+    </Route>
+  </Router>
 );
 
-Router.run(Routes, function (Handler) {
-  React.render(<Handler/>, content);
-});
+React.render(Routes, content);
