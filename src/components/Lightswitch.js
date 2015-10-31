@@ -87,7 +87,7 @@ var Lightswitch = React.createClass({
               <TextField style={labelStyle} className="label" onBlur={this.onLabelChange} defaultValue={this.state.light.username} />
               <Toggle style={switchStyle} className="toggle" defaultToggled={this.props.active} onToggle={this.toggled} />
             </div>
-              <Slider value={this.props.value / 255} onChange={this.onChange} />
+              <Slider name="brightness" value={this.props.value / 255} onChange={this.onChange} />
             <div>
             </div>
         </Card>

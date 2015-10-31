@@ -63,11 +63,11 @@ var Ledcontroller = React.createClass({
             <span>LED Colors</span>
             <br />
             <span>Red</span>
-            <Slider onChange={this.onChangeRed} />
+            <Slider name="red-slider" onChange={this.onChangeRed} />
             <span>Green</span>
-            <Slider onChange={this.onChangeGreen} />
+            <Slider name="green-slider" onChange={this.onChangeGreen} />
             <span>Blue</span>
-            <Slider onChange={this.onChangeBlue} />
+            <Slider name="blue-slider" onChange={this.onChangeBlue} />
           </div>
         </Card>
       );
