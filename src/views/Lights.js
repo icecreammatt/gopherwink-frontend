@@ -52,4 +52,4 @@ var Lights = React.createClass({
   }
 });
 
-module.exports = Lights;;
+module.exports = Lights;
