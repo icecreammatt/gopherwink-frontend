@@ -12,7 +12,8 @@ let menuItems = [
   {route: 'lights', text: 'Lights'},
   {route: 'sensors', text: 'Sensors'},
   {route: 'led', text: 'LED'},
-  {route: 'Settings', text: 'Settings'}
+  {route: 'Settings', text: 'Settings'},
+  {type: mui.MenuItem.Types.LINK, payload: '/index.html', text: 'Refresh'}
 ];
 
 const Navigation = React.createClass({
