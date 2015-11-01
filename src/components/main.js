@@ -24,7 +24,7 @@ const App = React.createClass({
     return (
       <div>
         <AppBar onClick={this.toggleMenu} navbar={this.refs.nav} />
-        <Navigation ref="nav" />
+        <Navigation ref="nav" disableSwipeToOpen={true} />
         {this.props.children}
       </div>
     );
