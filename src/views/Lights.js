@@ -13,7 +13,7 @@ injectTapEventPlugin();
 require('normalize.css');
 require('../styles/main.css');
 
-var LightClientApp = React.createClass({
+var Lights = React.createClass({
 
   getInitialState() {
     if(localStorage.state) {
@@ -52,4 +52,4 @@ var LightClientApp = React.createClass({
   }
 });
 
-module.exports = LightClientApp;
+module.exports = Lights;;

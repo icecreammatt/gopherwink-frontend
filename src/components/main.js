@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import { AppBar, IconButton, NavigationClose } from 'material-ui';
 
-import LightClientApp from '../views/Lights';
+import Lights from '../views/Lights';
 import Sensors from '../views/Sensors';
 import Led from '../views/Led';
 import Navigation from './Navigation';
@@ -33,7 +33,8 @@ const routes = {
   location: 'hash',
   component: App,
   childRoutes: [
-    {path: 'lights', component: LightClientApp },
+    {path: 'index.html', component: Lights },
+    {path: 'lights', component: Lights },
     {path: 'sensors', component: Sensors },
     {path: 'led', component: Led }
   ]
