@@ -3,10 +3,9 @@
 require('whatwg-fetch');
 var React = require('react');
 var ReactTransitionGroup = require('react-addons-transition-group');
-var Lightswitch = require('./Lightswitch');
-let Ledcontroller = require('./Ledcontroller');
+var Lightswitch = require('../components/Lightswitch');
 let injectTapEventPlugin = require('react-tap-event-plugin');
-let config = require('./config');
+let config = require('../components/config');
 
 injectTapEventPlugin();
 
@@ -47,7 +46,6 @@ var LightClientApp = React.createClass({
       <div className="main">
         <ReactTransitionGroup transitionName="fade">
           {switches}
-          <Ledcontroller />
         </ReactTransitionGroup>
       </div>
     );
