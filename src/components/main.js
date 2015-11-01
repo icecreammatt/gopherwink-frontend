@@ -17,6 +17,9 @@ const App = React.createClass({
   toggleMenu() {
     this.refs.nav.toggle();
   },
+  componentDidMount() {
+    history.replaceState(null, '/lights');
+  },
   render() {
     return (
       <div>
