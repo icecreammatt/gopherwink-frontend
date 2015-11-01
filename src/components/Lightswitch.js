@@ -68,10 +68,13 @@ var Lightswitch = React.createClass({
     this.postData('lights/' + this.props.lightid + '/power');
   },
 
-  onChange(e, value) {
-    this.state.light.value = parseInt((value * 255) * 1); // Limit range between 0 & 255
+  onDragStop(e) {
     console.log(this.state.light.value);
     this.postData('lights/' + this.props.lightid + '/brightness');
+  },
+
+  onChange(e, value) {
+    this.state.light.value = parseInt((value * 255) * 1); // Limit range between 0 & 255
   },
 
   onLabelChange(e) {
@@ -87,7 +90,7 @@ var Lightswitch = React.createClass({
               <TextField style={labelStyle} className="label" onBlur={this.onLabelChange} defaultValue={this.state.light.username} />
               <Toggle style={switchStyle} className="toggle" defaultToggled={this.props.active} onToggle={this.toggled} />
             </div>
-              <Slider name="brightness" value={this.props.value / 255} onChange={this.onChange} />
+              <Slider name="brightness" value={this.props.value / 255} onChange={this.onChange} onDragStop={this.onDragStop} />
             <div>
             </div>
         </Card>
