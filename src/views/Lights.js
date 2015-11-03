@@ -30,6 +30,7 @@ var Lights = React.createClass({
     })
     .then(json => {
       console.log(json);
+      json = json.filter(item => item.Interconnect === 'ZIGBEE');
       this.setState({items: json});
       localStorage.state = JSON.stringify(this.state);
     });
